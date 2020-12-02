@@ -1,14 +1,27 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+import { getData } from "./modules/moviesData"
 
 class DisplayMoviesData extends Component {
+  state = {
+    moviesData: [],
+  };
+
+  componentDidMount() {
+    this.getMoviesData();
+  }
+
+  async getMoviesData() {
+    let result = await getData();
+    this.setState({ moviesData: result });
+  }
+
   render() {
     let dataMovieIndex;
-    const data = this.props.moviesData;
-    if (Array.isArray(data) && data) {
+    if (Array.isArray(this.state.moviesData) && this.state.moviesData.length) {
       dataMovieIndex = (
         <div data-cy="index">
-          {data.map((item) => {
+          {this.state.moviesData.map(item => {
             return (
               <div key={item.id} data-cy={`movie-${item.id}`}>
                 {item.title}
@@ -19,7 +32,7 @@ class DisplayMoviesData extends Component {
       );
     } else {
       return (
-      <h3 data-cy="message">Sorry! This movie is not available!{" "}</h3>
+      <h3 data-cy="message">Sorry! This movie is not available!</h3>
       );
     }
     return <div>{dataMovieIndex}</div>;
