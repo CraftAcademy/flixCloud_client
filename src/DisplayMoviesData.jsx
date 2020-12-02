@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
-import { getData } from "./modules/moviesData"
+import { getMovieIndex } from "./modules/moviesData"
 import { Card, Image, Grid, Container} from 'semantic-ui-react'
 
 class DisplayMoviesData extends Component {
@@ -13,23 +13,23 @@ class DisplayMoviesData extends Component {
   }
 
   async getMoviesData() {
-    let result = await getData();
+    let result = await getMovieIndex();
     this.setState({ moviesData: result });
   }
 
   render() {
-    let dataMovieIndex;
+    let movieIndexDisplay;
     if (Array.isArray(this.state.moviesData) && this.state.moviesData.length) {
-      dataMovieIndex = (
+      movieIndexDisplay = (
         <Grid columns={2} data-cy="index">
-          {this.state.moviesData.map(item => {
+          {this.state.moviesData.map(movie => {
             return (
               <Grid.Column> 
-                <Card key={item.id} data-cy={`movie-${item.id}`}>
-                  <Image wrapped ui={false} src={item.poster_path}/>
+                <Card key={movie.id} data-cy={`movie-${movie.id}`}>
+                  <Image wrapped ui={false} src={movie.poster_path}/>
                   <Card.Content>
                     <Card.Header>
-                      {item.title}
+                      {movie.title}
                     </Card.Header>
                     <Card.Meta>
                       Year of Release
@@ -52,7 +52,7 @@ class DisplayMoviesData extends Component {
       <h3 data-cy="message">Sorry! This movie is not available!</h3>
       );
     }
-    return <div>{dataMovieIndex}</div>;
+    return <div>{movieIndexDisplay}</div>;
   }
 }
 

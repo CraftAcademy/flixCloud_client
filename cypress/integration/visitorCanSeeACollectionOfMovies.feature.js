@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
-describe("Visitor can see", () => {
+describe("Visitor can ", () => {
   beforeEach(() => {
     cy.visit("/");
   });
 
-  describe("a collection of movies", () => {
+  describe("successfully", () => {
     before(() => {
       cy.server();
       cy.route({
@@ -14,7 +14,7 @@ describe("Visitor can see", () => {
       });
     });
 
-    it("successfully", () => {
+    it("see a collection of movies", () => {
       cy.get('[data-cy="index"]').within(() => {
         cy.contains("The Notebook");
         cy.contains("A Promise");
@@ -24,16 +24,16 @@ describe("Visitor can see", () => {
     });
   });
 
-  describe("a collection of movies", () => {
+  describe("not if no response data is given", () => {
     before(() => {
       cy.server();
       cy.route({
         method: "GET",
         url: "http://localhost:3000/api/movies",
-        response: [],
+        response: {},
       });
     });
-    it("unsuccessfully", () => {
+    it("see a collection of movies", () => {
       cy.get('[data-cy="index"]').should("not.exist");
       cy.get('[data-cy="message"]').should(
         "contain",
