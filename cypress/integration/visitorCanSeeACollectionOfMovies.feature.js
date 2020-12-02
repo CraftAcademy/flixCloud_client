@@ -18,7 +18,7 @@ describe("Visitor can see", () => {
       cy.get('[data-cy="index"]').within(() => {
         cy.contains("The Notebook");
         cy.contains("A Promise");
-        cy.contains("A Christmas Movie");
+        cy.contains("A Christmas Story");
       });
     });
   });

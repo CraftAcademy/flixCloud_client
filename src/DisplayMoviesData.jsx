@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { getData } from "./modules/moviesData"
+import { Item } from 'semantic-ui-react'
 
 class DisplayMoviesData extends Component {
   state = {
@@ -23,9 +24,12 @@ class DisplayMoviesData extends Component {
         <div data-cy="index">
           {this.state.moviesData.map(item => {
             return (
-              <div key={item.id} data-cy={`movie-${item.id}`}>
-                {item.title}
-              </div>
+              <Item key={item.id} data-cy={`movie-${item.id}`}>
+                <Item.Image size='tiny' src={item.poster_path} />
+                <Item.Content>
+                  {item.title}
+                </Item.Content>
+              </Item>
             );
           })}
         </div>
