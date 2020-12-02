@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { getData } from "./modules/moviesData"
-import { Item } from 'semantic-ui-react'
+import { Card, Image, Grid, Container} from 'semantic-ui-react'
 
 class DisplayMoviesData extends Component {
   state = {
@@ -21,18 +21,31 @@ class DisplayMoviesData extends Component {
     let dataMovieIndex;
     if (Array.isArray(this.state.moviesData) && this.state.moviesData.length) {
       dataMovieIndex = (
-        <div data-cy="index">
+        <Grid columns={2} data-cy="index">
           {this.state.moviesData.map(item => {
             return (
-              <Item key={item.id} data-cy={`movie-${item.id}`}>
-                <Item.Image size='tiny' src={item.poster_path} />
-                <Item.Content>
-                  {item.title}
-                </Item.Content>
-              </Item>
+              <Grid.Column> 
+                <Card key={item.id} data-cy={`movie-${item.id}`}>
+                  <Image wrapped ui={false} src={item.poster_path}/>
+                  <Card.Content>
+                    <Card.Header>
+                      {item.title}
+                    </Card.Header>
+                    <Card.Meta>
+                      Year of Release
+                    </Card.Meta>
+                    <Card.Description>
+                      An odd collection of movies
+                    </Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <a>Genre</a>
+                  </Card.Content>
+                </Card>
+              </Grid.Column>
             );
           })}
-        </div>
+        </Grid>
       );
     } else {
       return (

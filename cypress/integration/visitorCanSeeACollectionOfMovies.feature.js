@@ -19,6 +19,7 @@ describe("Visitor can see", () => {
         cy.contains("The Notebook");
         cy.contains("A Promise");
         cy.contains("A Christmas Story");
+        cy.contains("Star Trek II: The Wrath Of Khan")
       });
     });
   });
