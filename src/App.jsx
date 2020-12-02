@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { Component } from "react";
+import DisplayMoviesData from "./DisplayMoviesData";
 
-const App = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <DisplayMoviesData />
+      </div>
+    );
+  }
 }
 
-export default App
-
+export default App;
