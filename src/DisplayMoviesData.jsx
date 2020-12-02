@@ -17,13 +17,12 @@ class DisplayMoviesData extends Component {
           })}
         </div>
       );
+    } else {
+      return (
+      <h3 data-cy="message">Sorry! This movie is not available!{" "}</h3>
+      );
     }
-    return (
-      <div>
-        {dataMovieIndex}
-        <p> Hello </p>
-      </div>
-    );
+    return <div>{dataMovieIndex}</div>;
   }
 }
 

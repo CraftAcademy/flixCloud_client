@@ -22,4 +22,22 @@ describe("Visitor can see", () => {
       });
     });
   });
+
+  describe("a collection of movies", () => {
+    before(() => {
+      cy.server();
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/movies",
+        response: [],
+      });
+    });
+    it("unsuccessfully", () => {
+      cy.get('[data-cy="index"]').should("not.exist");
+      cy.get('[data-cy="message"]').should(
+        "contain",
+        "Sorry! This movie is not available!"
+      );
+    });
+  });
 });
