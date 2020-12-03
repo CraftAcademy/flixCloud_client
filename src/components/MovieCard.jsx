@@ -11,7 +11,7 @@ const MovieCard = ({movie}) => {
           {movie.title}
         </Card.Header>
         <Card.Meta>
-          Year of Release
+          {movie.release_date}
         </Card.Meta>
         <Card.Description>
           An odd collection of movies
