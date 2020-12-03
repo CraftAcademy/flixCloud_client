@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { getMovieIndex } from "./modules/moviesData"
 import { Card, Image, Grid, Container} from 'semantic-ui-react'
+import MovieCard from './components/MovieCard'
 
 class DisplayMoviesData extends Component {
   state = {
@@ -24,25 +25,8 @@ class DisplayMoviesData extends Component {
         <Grid columns={2} data-cy="index">
           {this.state.moviesData.map(movie => {
             return (
-              <Grid.Column> 
-                <Card key={movie.id} data-cy={`movie-${movie.id}`}>
-                  <Image wrapped ui={false} src={movie.poster_path}/>
-                  <Card.Content>
-                    <Card.Header>
-                      {movie.title}
-                    </Card.Header>
-                    <Card.Meta>
-                      Year of Release
-                    </Card.Meta>
-                    <Card.Description>
-                      An odd collection of movies
-                    </Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <a>Genre</a>
-                  </Card.Content>
-                </Card>
-              </Grid.Column>
+              
+              <MovieCard movie={movie} />
             );
           })}
         </Grid>
