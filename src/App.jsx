@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DisplayMoviesData from "./DisplayMoviesData";
+import DisplayMoviesData from "./components/DisplayMoviesData";
 import { Container } from 'semantic-ui-react'
 
 class App extends Component {
