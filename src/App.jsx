@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DisplayMoviesData from "./components/DisplayMoviesData";
 import { Container } from 'semantic-ui-react'
 import Header from './components/Header'
+import SearchForMovies from "./components/SearchForMovies";
 
 
 class App extends Component {
@@ -10,8 +11,8 @@ class App extends Component {
       <>
         <Header/>
         <Container>
+          <SearchForMovies />
           <DisplayMoviesData/>
-          <button data-cy="search-button">Search</button>
         </Container>
       </>
     );
