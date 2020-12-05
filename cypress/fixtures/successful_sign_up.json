@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "data": {
+    "id": 1,
+    "nickname": "Hampus",
+    "email": "user@mail.com",
+    "provider": "email",
+    "uid": "user@mail.com",
+    "allow_password_change": false
+  }
+}

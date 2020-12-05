@@ -1,0 +1,63 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/5846jHODKbja38USbFcXgOnsfqb.jpg",
+      "genre_ids": [
+        10751,
+        14,
+        12
+      ],
+      "id": 654028,
+      "original_language": "en",
+      "original_title": "The Christmas Chronicles: Part Two",
+      "overview": "Kate Pierce is reluctantly spending Christmas with her mom’s new boyfriend and his son Jack. But when the North Pole and Christmas are threatened to be destroyed, Kate and Jack are unexpectedly pulled into a new adventure with Santa Claus.",
+      "popularity": 703.919,
+      "poster_path": "/6sG0kbEvAi3RRLcGGU5h8l3qAPa.jpg",
+      "release_date": "2020-11-18",
+      "title": "The Christmas Chronicles: Part Two",
+      "video": false,
+      "vote_average": 7.4,
+      "vote_count": 156
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/q9ZLjqti3UTt5ZC3qQMZhRNueGc.jpg",
+      "genre_ids": [
+        35,
+        10751,
+        10749
+      ],
+      "id": 738646,
+      "original_language": "en",
+      "original_title": "Operation Christmas Drop",
+      "overview": "While gathering evidence to support closing a tropical U.S. Air Force base, a congressional aide warms to its generous captain.",
+      "popularity": 152.949,
+      "poster_path": "/ijrXKkb4eeanJOqFjGB7WRZVrZO.jpg",
+      "release_date": "2020-11-05",
+      "title": "Operation Christmas Drop",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 233
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/eo6pahstCYRUm0Lk4MORmfCs2SH.jpg",
+      "genre_ids": [
+        16
+      ],
+      "id": 752455,
+      "original_language": "en",
+      "original_title": "Angela's Christmas Wish",
+      "overview": "A determined Angela makes a wish to reunite her family in time for Christmas, then launches a plan to find her way from Ireland to Australia.",
+      "popularity": 86.915,
+      "poster_path": "/eu747ko823mktL3ygo7ohdZznP7.jpg",
+      "release_date": "2020-12-01",
+      "title": "Angela's Christmas Wish",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 9
+    }
+  ]
+}
