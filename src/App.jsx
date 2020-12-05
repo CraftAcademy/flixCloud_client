@@ -4,11 +4,21 @@ import { Container } from "semantic-ui-react";
 import SearchForMovies from "./components/SearchForMovies";
 
 class App extends Component {
+  // state = {
+  //   authenticated: false,
+  // };
+
+  // toggleAuthenticatedState() {
+  //   this.setState({ authenticated: !this.state.authenticated });
+  // }
+
   render() {
     return (
       <>
         <Container>
-          <SearchForMovies />
+          <SearchForMovies
+            // toggleAuthenticatedState={() => this.toggleAuthenticatedState()}
+          />
           <DisplayMoviesData />
         </Container>
       </>

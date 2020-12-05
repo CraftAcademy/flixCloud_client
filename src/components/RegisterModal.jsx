@@ -1,18 +1,46 @@
 import React from 'react'
 import { Button, Modal, Form } from 'semantic-ui-react'
 
+
 function RegisterModal() {
 
   const [open, setOpen] = React.useState(false)
-  // const [authenticated, setAuthenticated] = React.useState(false)
-  // const toggleAuthenticated 
+  const [authenticated, setAuthenticated] = React.useState(false)
+  
+  async authenticate() {
+    event.preventDefault()
+    let credentials = {
+      nickname: event.target.nickname.value,
+      email: event.target.email.value,
+      password: event.target.password.value,
+      password_confirmation: event.target.password_confirmation.value
+    }
+
+    let response = await axios.post('http://localhost:3000/api/auth', credentials)
+    const userData = {
+      uid: response.headers.uid,
+      client: response.headers.client,
+      'token-type': response.headers['token-type'],
+      expiry: response.headers.expiry,
+      'access-token': response.headers['access-token']
+    }
+    localStorage.setItem("credentials", JSON.stringify(userData))
+    localStorage.setItem("authenticated", true)
+    
+   
+  }
+
+   
+
+  
 
   return (
+    
     <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      // authenticated={authenticated}
+      authenticated={authenticated}
       trigger={<Button
         data-cy="register-button"
         onClick={() => setOpen({ renderRegisterForm: true })}
@@ -57,8 +85,7 @@ function RegisterModal() {
           content="Yes please!"
           labelPosition='right'
           icon='checkmark'
-          onClick={() => setOpen(false)}
-          // onClick={()=> setAuthenticated(true)}
+          onClick={(event) => setOpen(false), setAuthenticated(true)}
           positive
         />
       </Modal.Actions>

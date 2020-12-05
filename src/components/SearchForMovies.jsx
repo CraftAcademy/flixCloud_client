@@ -45,25 +45,10 @@ class SearchForMovies extends Component {
     } else {
       return (
         <>
-        <RegisterModal/> 
+          <RegisterModal />
         </>
-      )
+      );
     }
-    // return (
-    //    <>
-    //   //   <Input
-    //   //     type="text"
-    //   //     data-cy="search-input"
-    //   //     placeholder="Search By Title..."
-    //   //   />
-    //   //   <Button onClick={() => this.searchByTitle()} data-cy="search-button">
-    //   //     Search
-    //   //   </Button>
-    //   //   <div data-cy="search-results">
-    //   //     <ul>{displaySearchResults}</ul>
-    //   //   </div>
-    //   </>
-    // );
   }
 }
 

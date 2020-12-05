@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('User authenticates', () => {
   beforeEach(() => {
     cy.server();
@@ -18,6 +19,6 @@ describe('User authenticates', () => {
       cy.get("[data-cy='password-confirmation']").type("password")
     });
     cy.get("[data-cy='signup-button']").click();
-    cy.get("[data-cy='search-button']").should("contain", "Search");
+    cy.get("[data-cy='search-button']").should("exist");
   });
 });
