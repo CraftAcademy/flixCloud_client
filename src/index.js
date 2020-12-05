@@ -6,7 +6,7 @@ import axios from "axios";
 import "semantic-ui-css/semantic.min.css"
 
 let apiUrl;
-apiUrl = "http://localhost:3000/api/";
+apiUrl = "http://localhost:3000/api";
 
 axios.defaults.baseURL = apiUrl;
 
