@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Input } from "semantic-ui-react";
 import axios from "axios";
+import MovieCard from "./MovieCard";
 
 class SearchForMovies extends Component {
   state = {
@@ -11,16 +12,17 @@ class SearchForMovies extends Component {
   setSearchInputValue(e) {
     this.setState({ searchValue: e.target.value });
   }
-
+ 
   async searchByTitle() {
     // const query = this.state.searchValue
-    let response = await axios.get("/movies");
+    let response = await axios.get("/movies/search");
     this.setState({ movieSearchResults: response.data.movies });
   }
 
   render() {
-    let displaySearchResults = this.state.movieSearchResults.map((movie) => {
-      return <li movie={movie} key={movie.id}>{movie.title}</li>;
+    let displaySearchResults 
+    this.state.movieSearchResults.map((movie) => {
+      return <MovieCard movie={movie}/>;
     });
     return (
       <>
@@ -32,10 +34,13 @@ class SearchForMovies extends Component {
         <Button onClick={() => this.searchByTitle()} data-cy="search-button">
           Search
         </Button>
-        <div data-cy="search-results">
-          <ul>{displaySearchResults}</ul>
+        <div data-cy='search-results'>
+          <ul>
+          {displaySearchResults} 
+          </ul>
         </div>
       </>
+      
     );
   }
 }

@@ -15,7 +15,7 @@ describe('User can search for movies', () => {
         }
       })
       cy.route({
-        url: "http://localhost:3000/api/movies",
+        url: "http://localhost:3000/api/movies/search",
         method: 'GET',
         response: "fixture:search_for_christmas_results.json"
       })
@@ -26,10 +26,13 @@ describe('User can search for movies', () => {
 
     it('is expected to display search results', () => {
       cy.get('[data-cy="search-results"]').within(() => {
-        cy.get('li').contains('The Christmas Chronicles: Part Two').should('exist')
-        cy.get('li').contains('Operation Christmas Drop').should('exist')
-        cy.get('li').contains('Angela\'s Christmas Wish').should('exist')
+        cy.contains('The Christmas Chronicles: Part Two').should('exist')
+        cy.contains('Operation Christmas Drop').should('exist')
+        cy.contains('Angela\'s Christmas Wish').should('exist')
       })
     })
+    it('is expected to not display the movie index', () => {
+      cy.get('[data-cy="index"]').should("not.exist")
+    });
   })
 })

@@ -5,7 +5,9 @@ import Header from './components/Header'
 import SearchForMovies from "./components/SearchForMovies";
 
 
+
 class App extends Component {
+
   render() {
     return (
       <>

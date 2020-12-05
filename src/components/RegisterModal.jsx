@@ -4,12 +4,15 @@ import { Button, Modal, Form } from 'semantic-ui-react'
 function RegisterModal() {
 
   const [open, setOpen] = React.useState(false)
+  // const [authenticated, setAuthenticated] = React.useState(false)
+  // const toggleAuthenticated 
 
   return (
     <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
+      // authenticated={authenticated}
       trigger={<Button
         data-cy="register-button"
         onClick={() => setOpen({ renderRegisterForm: true })}
@@ -55,6 +58,7 @@ function RegisterModal() {
           labelPosition='right'
           icon='checkmark'
           onClick={() => setOpen(false)}
+          // onClick={()=> setAuthenticated(true)}
           positive
         />
       </Modal.Actions>
