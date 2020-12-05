@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Button, Input } from "semantic-ui-react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import RegisterModal from "./RegisterModal";
 
 class SearchForMovies extends Component {
   state = {
     searchValue: "",
     movieSearchResults: [],
+    authenticate: false,
   };
 
   setSearchInputValue(e) {
@@ -24,21 +26,44 @@ class SearchForMovies extends Component {
     displaySearchResults = this.state.movieSearchResults.map((movie) => {
       return <MovieCard movie={movie} />;
     });
-    return (
-      <>
-        <Input
-          type="text"
-          data-cy="search-input"
-          placeholder="Search By Title..."
-        />
-        <Button onClick={() => this.searchByTitle()} data-cy="search-button">
-          Search
-        </Button>
-        <div data-cy="search-results">
-          <ul>{displaySearchResults}</ul>
-        </div>
-      </>
-    );
+    if (this.state.authenticate === true) {
+      return (
+        <>
+          <Input
+            type="text"
+            data-cy="search-input"
+            placeholder="Search By Title..."
+          />
+          <Button onClick={() => this.searchByTitle()} data-cy="search-button">
+            Search
+          </Button>
+          <div data-cy="search-results">
+            <ul>{displaySearchResults}</ul>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+        <RegisterModal/> 
+        </>
+      )
+    }
+    // return (
+    //    <>
+    //   //   <Input
+    //   //     type="text"
+    //   //     data-cy="search-input"
+    //   //     placeholder="Search By Title..."
+    //   //   />
+    //   //   <Button onClick={() => this.searchByTitle()} data-cy="search-button">
+    //   //     Search
+    //   //   </Button>
+    //   //   <div data-cy="search-results">
+    //   //     <ul>{displaySearchResults}</ul>
+    //   //   </div>
+    //   </>
+    // );
   }
 }
 
