@@ -8,7 +8,6 @@ class SearchForMovies extends Component {
   state = {
     searchValue: "",
     movieSearchResults: [],
-    authenticate: false,
   };
 
   setSearchInputValue(e) {
@@ -19,6 +18,7 @@ class SearchForMovies extends Component {
     // const query = this.state.searchValue
     let response = await axios.get("/movies/search");
     this.setState({ movieSearchResults: response.data.movies });
+    this.props.onSearch();
   }
 
   render() {
@@ -26,7 +26,7 @@ class SearchForMovies extends Component {
     displaySearchResults = this.state.movieSearchResults.map((movie) => {
       return <MovieCard movie={movie} />;
     });
-    if (this.state.authenticate === true) {
+    if (this.props.authenticated === true) {
       return (
         <>
           <Input
@@ -45,7 +45,7 @@ class SearchForMovies extends Component {
     } else {
       return (
         <>
-          <RegisterModal />
+          <RegisterModal onAuthenticate={this.props.onAuthenticate} />
         </>
       );
     }
