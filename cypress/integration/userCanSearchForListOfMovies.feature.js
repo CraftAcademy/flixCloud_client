@@ -17,7 +17,7 @@ describe('User can search for movies', () => {
       cy.route({
         url: "http://localhost:3000/api/movies",
         method: 'GET',
-        response: "fixture:search_for_christmas.json"
+        response: "fixture:search_for_christmas_results.json"
       })
       cy.visit('/')
       cy.get('[data-cy="search-input"]').type('christmas')
