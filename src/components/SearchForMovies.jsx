@@ -12,7 +12,7 @@ class SearchForMovies extends Component {
   setSearchInputValue(e) {
     this.setState({ searchValue: e.target.value });
   }
- 
+
   async searchByTitle() {
     // const query = this.state.searchValue
     let response = await axios.get("/movies/search");
@@ -20,9 +20,9 @@ class SearchForMovies extends Component {
   }
 
   render() {
-    let displaySearchResults 
-    this.state.movieSearchResults.map((movie) => {
-      return <MovieCard movie={movie}/>;
+    let displaySearchResults;
+    displaySearchResults = this.state.movieSearchResults.map((movie) => {
+      return <MovieCard movie={movie} />;
     });
     return (
       <>
@@ -34,13 +34,10 @@ class SearchForMovies extends Component {
         <Button onClick={() => this.searchByTitle()} data-cy="search-button">
           Search
         </Button>
-        <div data-cy='search-results'>
-          <ul>
-          {displaySearchResults} 
-          </ul>
+        <div data-cy="search-results">
+          <ul>{displaySearchResults}</ul>
         </div>
       </>
-      
     );
   }
 }

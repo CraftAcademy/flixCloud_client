@@ -28,9 +28,7 @@ class DisplayMoviesData extends Component {
           })}
         </Grid>
       );
-    } else {
-      return <h3 data-cy="message">Sorry! This movie is not available!</h3>;
-    }
+    } 
     return <div>{movieIndexDisplay}</div>;
   }
 }
