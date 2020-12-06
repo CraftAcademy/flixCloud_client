@@ -7,6 +7,9 @@ import "semantic-ui-css/semantic.min.css";
 import { StripeProvider } from "react-stripe-elements";
 
 let apiUrl;
+if (process.env.NODE_ENV === "production") {
+  apiUrl = "https://flixcloud-api.herokuapp.com/";
+} else {
 apiUrl = "http://localhost:3000/api";
 
 axios.defaults.baseURL = apiUrl;
