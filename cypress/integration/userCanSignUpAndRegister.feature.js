@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 describe('User authenticates', () => {
   beforeEach(() => {
     cy.server();
