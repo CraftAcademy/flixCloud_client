@@ -1,6 +1,19 @@
+/* eslint-disable no-undef */
 describe('User authenticates', () => {
   beforeEach(() => {
     cy.server();
+    cy.route({
+      method: 'POST',
+      url: 'http://localhost:3000/api/auth',
+      response: "fixture:successful_sign_up.json",
+      headers: {
+        uid: 'user@mail.com',
+        access_token: 'token',
+        client: '12345',
+        token_type: "Bearer",
+        expiry: 1000000
+      }
+    });
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/movies",
@@ -18,6 +31,6 @@ describe('User authenticates', () => {
       cy.get("[data-cy='password-confirmation']").type("password")
     });
     cy.get("[data-cy='signup-button']").click();
-    cy.get("[data-cy='search-button']").should("contain", "Search");
+    cy.get("[data-cy='search-button']").should("exist");
   });
 });
