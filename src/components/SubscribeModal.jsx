@@ -1,6 +1,11 @@
 import React from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
-import { CardNumberElement, injectStripe } from "react-stripe-elements"
+import { 
+  CardNumberElement, 
+  injectStripe, 
+  CardCVCElement, 
+  CardExpiryElement } 
+  from "react-stripe-elements"
 
 function SubscribeModal({onAuthenticate}) {
   const [open, setOpen] = React.useState(false);
@@ -37,14 +42,14 @@ function SubscribeModal({onAuthenticate}) {
           <label>Card Number</label>
          <CardNumberElement/>
         </Form.Field>
-        <Form.Field>
+        <Form.Field data-cy="card-expiry">
           <label>Expiry Date</label>
-          <input name="expiry-date" data-cy="expiry-date" type="number" placeholder="Expiry Date" />
+          <CardExpiryElement />
         </Form.Field>
 
-        <Form.Field>
+        <Form.Field data-cy="card-cvc">
           <label>CVC</label>
-          <input name="cvc" data-cy="cvc" type="number" placeholder="CVC" />
+          <CardCVCElement />
         </Form.Field>
 
         <Modal.Actions>

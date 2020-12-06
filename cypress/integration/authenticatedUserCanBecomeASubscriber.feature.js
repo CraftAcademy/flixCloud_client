@@ -43,16 +43,32 @@ describe("User can see subscribe button", () => {
       cy.get("[data-cy='signup-button']").click();
       cy.get('[data-cy="subscribe-button"]').click();
       cy.get("[data-cy='payment-form']").should("exist");
-    
-
-
+ 
       cy.wait(1000);
       cy.get('[data-cy="card-number"]').within(() => {
         cy.get('iframe[name^="__privateStripeFrame"]').then(($iframe) => {
           const $body = $iframe.contents().find("body");
           cy.wrap($body)
             .find('input[name="cardnumber"]')
-            .type("4242424242424242", { delay: 50 });
+            .type("4242424242424242", { delay: 10 });
+        });
+      });
+
+      cy.get('[data-cy="card-expiry"]').within(() => {
+        cy.get('iframe[name^="__privateStripeFrame"]').then(($iframe) => {
+          const $body = $iframe.contents().find("body");
+          cy.wrap($body)
+            .find('input[name="exp-date"]')
+            .type("1222", { delay: 10 });
+        });
+      });
+
+      cy.get('[data-cy="card-cvc"]').within(() => {
+        cy.get('iframe[name^="__privateStripeFrame"]').then(($iframe) => {
+          const $body = $iframe.contents().find("body");
+          cy.wrap($body)
+            .find('input[name="cvc"]')
+            .type("424", { delay: 10 });
         });
       });
     });
