@@ -21,7 +21,7 @@ function RegisterModal({onAuthenticate}) {
       onOpen={() => setOpen(true)}
       open={open}
       trigger={
-        <Button
+        <Button color="green" id="button"
           data-cy="register-button"
           onClick={() => setOpen({ renderRegisterForm: true })}
         >

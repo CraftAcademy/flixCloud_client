@@ -46,7 +46,7 @@ function App() {
 
   return (
     <>
-      <Container>
+      <Container >
         <SearchForMovies
           authenticated={authenticated}
           onAuthenticate={onAuthenticateHandler}

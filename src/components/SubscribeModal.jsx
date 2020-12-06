@@ -40,7 +40,7 @@ function SubscribeModal({ onSubscribe, stripe }) {
       open={open}
       trigger={
         <Button
-          data-cy="subscribe-button"
+          data-cy="subscribe-button" color="teal"
           onClick={() => setOpen({ renderRegisterForm: true })}
         >
           Subscribe
