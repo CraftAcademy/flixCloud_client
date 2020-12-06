@@ -19,7 +19,7 @@ describe("Visitor can ", () => {
         cy.contains("The Notebook");
         cy.contains("A Promise");
         cy.contains("A Christmas Story");
-        cy.contains("Star Trek II: The Wrath Of Khan")
+        cy.contains("Star Trek II: The Wrath Of Khan");
       });
     });
   });
@@ -35,10 +35,6 @@ describe("Visitor can ", () => {
     });
     it("see a collection of movies", () => {
       cy.get('[data-cy="index"]').should("not.exist");
-      cy.get('[data-cy="message"]').should(
-        "contain",
-        "Sorry! This movie is not available!"
-      );
     });
   });
 });
