@@ -7,7 +7,7 @@ import {
   CardExpiryElement } 
   from "react-stripe-elements"
 
-function SubscribeModal({onAuthenticate}) {
+function SubscribeModal({}) {
   const [open, setOpen] = React.useState(false);
 
   const onCancelHandler = (event) => {
@@ -15,10 +15,9 @@ function SubscribeModal({onAuthenticate}) {
     setOpen(false)
   }
 
-  const onAuthenticateHandler = async (event) => {
+  const onPaymentHandler = (event) => {
     event.preventDefault();
-    const successful = await onAuthenticate(event)
-    setOpen(!successful)
+    
   }
 
   return (
@@ -37,7 +36,7 @@ function SubscribeModal({onAuthenticate}) {
       >
   
       <Modal.Header>Fill in your card information</Modal.Header>
-      <Form data-cy="payment-form" onSubmit={onAuthenticateHandler}>
+      <Form data-cy="payment-form" onSubmit={onPaymentHandler}>
         <Form.Field data-cy="card-number">
           <label>Card Number</label>
          <CardNumberElement/>
@@ -57,8 +56,8 @@ function SubscribeModal({onAuthenticate}) {
             Nope
           </Button>
           <Button
-            data-cy="signup-button"
-            content="Yes please!"
+            data-cy="payment-button"
+            content="Confirm Payment"
             labelPosition="right"
             icon="checkmark"
             positive

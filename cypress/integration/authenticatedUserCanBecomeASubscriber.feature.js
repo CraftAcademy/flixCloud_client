@@ -7,6 +7,13 @@ describe("User can see subscribe button", () => {
       url: "http://localhost:3000/api/movies",
       response: "fixture:movies_data.json",
     });
+
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/subscriptions",
+      response: "fixture:stripe_response.json",
+    });
+
     cy.visit("/");
   });
 
@@ -71,6 +78,8 @@ describe("User can see subscribe button", () => {
             .type("424", { delay: 10 });
         });
       });
+      cy.get("[data-cy='payment-button']").contains('Confirm Payment').click()
+      cy.get("[data-cy='payment-message']").contains("Thank you for payment, you are now a subscriber!")
     });
   });
 });
