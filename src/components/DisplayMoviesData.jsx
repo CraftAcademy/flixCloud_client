@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { getMovieIndex } from "../modules/moviesData";
-import { Grid } from "semantic-ui-react";
+import { Card, Grid } from "semantic-ui-react";
 import MovieCard from "./MovieCard";
 
 class DisplayMoviesData extends Component {
@@ -22,13 +22,13 @@ class DisplayMoviesData extends Component {
     let movieIndexDisplay;
     if (Array.isArray(this.state.moviesData) && this.state.moviesData.length) {
       movieIndexDisplay = (
-        <Grid columns={2} data-cy="index">
-          {this.state.moviesData.map((movie) => {
-            return <MovieCard movie={movie} />;
+        <Card.Group data-cy="index" itemsPerRow={5}>
+          {this.state.moviesData.map((movie, index) => {
+            return <MovieCard movie={{ ...movie, id: index }} />;
           })}
-        </Grid>
+        </Card.Group>
       );
-    } 
+    }
     return <div>{movieIndexDisplay}</div>;
   }
 }
