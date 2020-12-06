@@ -3,6 +3,7 @@ import { Button, Input } from "semantic-ui-react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 import RegisterModal from "./RegisterModal";
+import SubscribeButton from "./SubscribeButton";
 
 class SearchForMovies extends Component {
   state = {
@@ -37,6 +38,7 @@ class SearchForMovies extends Component {
           <Button onClick={() => this.searchByTitle()} data-cy="search-button">
             Search
           </Button>
+          <SubscribeButton />
           <div data-cy="search-results">
             <ul>{displaySearchResults}</ul>
           </div>
