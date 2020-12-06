@@ -4,7 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import axios from "axios";
 import "semantic-ui-css/semantic.min.css";
-import { StripeProvider } from "react-stripe";
+import { StripeProvider } from "react-stripe-elements";
 
 let apiUrl;
 apiUrl = "http://localhost:3000/api";

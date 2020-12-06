@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
+import { CardNumberElement, injectStripe } from "react-stripe-elements"
 
 function SubscribeModal({onAuthenticate}) {
   const [open, setOpen] = React.useState(false);
@@ -32,9 +33,9 @@ function SubscribeModal({onAuthenticate}) {
   
       <Modal.Header>Fill in your card information</Modal.Header>
       <Form data-cy="payment-form" onSubmit={onAuthenticateHandler}>
-        <Form.Field>
+        <Form.Field data-cy="card-number">
           <label>Card Number</label>
-          <input name="card-number" data-cy="card-number" type="number" placeholder="Card Number" />
+         <CardNumberElement/>
         </Form.Field>
         <Form.Field>
           <label>Expiry Date</label>
@@ -63,4 +64,4 @@ function SubscribeModal({onAuthenticate}) {
   );
 }
 
-export default SubscribeModal;
+export default injectStripe(SubscribeModal);

@@ -4,6 +4,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import RegisterModal from "./RegisterModal";
 import SubscribeModal from "./SubscribeModal";
+import { Elements } from 'react-stripe-elements'
 
 class SearchForMovies extends Component {
   state = {
@@ -38,7 +39,7 @@ class SearchForMovies extends Component {
           <Button onClick={() => this.searchByTitle()} data-cy="search-button">
             Search
           </Button>
-          <SubscribeModal onAuthenticate={this.props.onAuthenticate}/>
+          <Elements><SubscribeModal onAuthenticate={this.props.onAuthenticate}/></Elements>
           <div data-cy="search-results">
             <ul>{displaySearchResults}</ul>
           </div>
