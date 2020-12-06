@@ -43,10 +43,9 @@ describe("User can see subscribe button", () => {
       cy.get("[data-cy='signup-button']").click();
       cy.get('[data-cy="subscribe-button"]').click();
       cy.get("[data-cy='payment-form']").should("exist");
-    });
+    
 
-    it("by filling in valid credit card information ", () => {
-      cy.get("[data-cy='payment-form']").within(() => { });
+
       cy.wait(1000);
       cy.get('[data-cy="card-number"]').within(() => {
         cy.get('iframe[name^="__privateStripeFrame"]').then(($iframe) => {
