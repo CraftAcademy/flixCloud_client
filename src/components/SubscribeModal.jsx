@@ -17,7 +17,7 @@ function SubscribeModal({ onSubscribe, stripe }) {
   };
 
   const performPayment = async (stripeToken) => {
-    let headers = JSON.parse(localStorage.getItem("userData"));
+    let headers = JSON.parse(localStorage.getItem("credentials"));
     let response = await axios.post(
       "/subscriptions",
       { stripeToken: stripeToken },
