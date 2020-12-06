@@ -38,7 +38,7 @@ class SearchForMovies extends Component {
           <Button onClick={() => this.searchByTitle()} data-cy="search-button">
             Search
           </Button>
-          <SubscribeModal/>
+          <SubscribeModal onAuthenticate={this.props.onAuthenticate}/>
           <div data-cy="search-results">
             <ul>{displaySearchResults}</ul>
           </div>
