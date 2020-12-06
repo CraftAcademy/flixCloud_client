@@ -15,9 +15,11 @@ function SubscribeModal({}) {
     setOpen(false)
   }
 
-  const onPaymentHandler = (event) => {
+  const onPaymentHandler = async (event) => {
     event.preventDefault();
-    
+    const successful = await onPayment(event)
+    let stripeResponse = await stripe.createToken()
+    debugger
   }
 
   return (
