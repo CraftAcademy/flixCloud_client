@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
-import { getMovieIndex } from "../modules/moviesData";
-import { Grid } from "semantic-ui-react";
-import MovieCard from "./MovieCard";
+import { getMovieIndex } from "./modules/moviesData"
+import { Card, Image, Grid, Container} from 'semantic-ui-react'
+import MovieCard from './components/MovieCard'
 
 class DisplayMoviesData extends Component {
   state = {
@@ -23,12 +23,19 @@ class DisplayMoviesData extends Component {
     if (Array.isArray(this.state.moviesData) && this.state.moviesData.length) {
       movieIndexDisplay = (
         <Grid columns={2} data-cy="index">
-          {this.state.moviesData.map((movie) => {
-            return <MovieCard movie={movie} />;
+          {this.state.moviesData.map(movie => {
+            return (
+              
+              <MovieCard movie={movie} />
+            );
           })}
         </Grid>
       );
-    } 
+    } else {
+      return (
+      <h3 data-cy="message">Sorry! This movie is not available!</h3>
+      );
+    }
     return <div>{movieIndexDisplay}</div>;
   }
 }
