@@ -4,13 +4,18 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 import RegisterModal from "./RegisterModal";
 import SubscribeModal from "./SubscribeModal";
-import { Elements } from 'react-stripe-elements'
+import { Elements } from "react-stripe-elements";
 
 class SearchForMovies extends Component {
   state = {
     searchValue: "",
     movieSearchResults: [],
+    subscriptionMessage: "",
   };
+
+  onSubscribe(message) {
+    this.setState({ subscriptionMessage: message })
+  }
 
   setSearchInputValue(e) {
     this.setState({ searchValue: e.target.value });
@@ -39,7 +44,10 @@ class SearchForMovies extends Component {
           <Button onClick={() => this.searchByTitle()} data-cy="search-button">
             Search
           </Button>
-          <Elements><SubscribeModal onAuthenticate={this.props.onAuthenticate}/></Elements>
+          <Elements>
+            <SubscribeModal onSubscribe={(message) => this.onSubscribe(message)} />
+          </Elements>
+          <p data-cy="payment-message">{this.state.subscriptionMessage}</p>
           <div data-cy="search-results">
             <ul>{displaySearchResults}</ul>
           </div>

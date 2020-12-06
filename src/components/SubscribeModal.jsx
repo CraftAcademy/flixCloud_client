@@ -1,26 +1,37 @@
 import React from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
-import { 
-  CardNumberElement, 
-  injectStripe, 
-  CardCVCElement, 
-  CardExpiryElement } 
-  from "react-stripe-elements"
+import {
+  CardNumberElement,
+  injectStripe,
+  CardCVCElement,
+  CardExpiryElement,
+} from "react-stripe-elements";
+import axios from "axios";
 
-function SubscribeModal({}) {
+function SubscribeModal({ onSubscribe, stripe }) {
   const [open, setOpen] = React.useState(false);
 
   const onCancelHandler = (event) => {
     event.preventDefault();
-    setOpen(false)
-  }
+    setOpen(false);
+  };
+
+  const performPayment = async (stripeToken) => {
+    let headers = JSON.parse(localStorage.getItem("userData"));
+    let response = await axios.post(
+      "/subscriptions",
+      { stripeToken: stripeToken },
+      { headers: headers }
+    );
+    onSubscribe(response.data.paid ? response.data.message : "Whoops!");
+    setOpen(false);
+  };
 
   const onPaymentHandler = async (event) => {
     event.preventDefault();
-    const successful = await onPayment(event)
-    let stripeResponse = await stripe.createToken()
-    debugger
-  }
+    let stripeResponse = await stripe.createToken();
+    stripeResponse.token && performPayment(stripeResponse.token.id);
+  };
 
   return (
     <Modal
@@ -35,13 +46,12 @@ function SubscribeModal({}) {
           Subscribe
         </Button>
       }
-      >
-  
+    >
       <Modal.Header>Fill in your card information</Modal.Header>
       <Form data-cy="payment-form" onSubmit={onPaymentHandler}>
         <Form.Field data-cy="card-number">
           <label>Card Number</label>
-         <CardNumberElement/>
+          <CardNumberElement />
         </Form.Field>
         <Form.Field data-cy="card-expiry">
           <label>Expiry Date</label>
