@@ -45,16 +45,14 @@ function App() {
   };
 
   return (
-    <>
-      <Container >
-        <SearchForMovies
-          authenticated={authenticated}
-          onAuthenticate={onAuthenticateHandler}
-          onSearch={onSearchHandler}
-        />
-        {searched ? <></> : <DisplayMoviesData />}
-      </Container>
-    </>
+    <Container style={{ marginTop: "1em" }}>
+      <SearchForMovies
+        authenticated={authenticated}
+        onAuthenticate={onAuthenticateHandler}
+        onSearch={onSearchHandler}
+      />
+      {searched ? <></> : <DisplayMoviesData />}
+    </Container>
   );
 }
 

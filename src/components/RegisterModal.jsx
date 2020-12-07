@@ -1,19 +1,19 @@
 import React from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
 
-function RegisterModal({onAuthenticate}) {
+function RegisterModal({ onAuthenticate }) {
   const [open, setOpen] = React.useState(false);
 
   const onCancelHandler = (event) => {
     event.preventDefault();
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   const onAuthenticateHandler = async (event) => {
     event.preventDefault();
-    const successful = await onAuthenticate(event)
-    setOpen(!successful)
-  }
+    const successful = await onAuthenticate(event);
+    setOpen(!successful);
+  };
 
   return (
     <Modal
@@ -21,7 +21,9 @@ function RegisterModal({onAuthenticate}) {
       onOpen={() => setOpen(true)}
       open={open}
       trigger={
-        <Button color="green" id="button"
+        <Button
+          color="green"
+          id="button"
           data-cy="register-button"
           onClick={() => setOpen({ renderRegisterForm: true })}
         >
@@ -33,7 +35,12 @@ function RegisterModal({onAuthenticate}) {
       <Form data-cy="register-form" onSubmit={onAuthenticateHandler}>
         <Form.Field>
           <label>Choose a nickname</label>
-          <input name="nickname" data-cy="nickname" type="text" placeholder="Nickname" />
+          <input
+            name="nickname"
+            data-cy="nickname"
+            type="text"
+            placeholder="Nickname"
+          />
         </Form.Field>
 
         <Form.Field>
@@ -43,7 +50,12 @@ function RegisterModal({onAuthenticate}) {
 
         <Form.Field>
           <label className="password">Password</label>
-          <input name="password" data-cy="password" type="password" placeholder="password" />
+          <input
+            name="password"
+            data-cy="password"
+            type="password"
+            placeholder="password"
+          />
         </Form.Field>
 
         <Form.Field>

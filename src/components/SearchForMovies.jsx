@@ -1,5 +1,14 @@
 import React, { Component } from "react";
-import { Button, Card, Form } from "semantic-ui-react";
+import {
+  Button,
+  Card,
+  Container,
+  Form,
+  Grid,
+  Header,
+  Menu,
+  Segment,
+} from "semantic-ui-react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 import RegisterModal from "./RegisterModal";
@@ -66,9 +75,18 @@ class SearchForMovies extends Component {
       );
     } else {
       return (
-        <>
-          <RegisterModal onAuthenticate={this.props.onAuthenticate} />
-        </>
+        <Grid padded columns={16}>
+          <Grid.Row>
+            <Grid.Column width={14} textAlign="center" verticalAlign="middle">
+              <Header fluid textAlign="center">
+                Welcome to Flixcloud
+              </Header>
+            </Grid.Column>
+            <Grid.Column width={2} textAlign="center">
+              <RegisterModal onAuthenticate={this.props.onAuthenticate} />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       );
     }
   }
