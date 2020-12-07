@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { getMovieIndex } from "../modules/moviesData";
-import { Card, Grid } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import MovieCard from "./MovieCard";
 
 class DisplayMoviesData extends Component {

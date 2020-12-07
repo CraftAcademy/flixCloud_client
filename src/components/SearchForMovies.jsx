@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-  Button,
-  Card,
-  Container,
-  Form,
-  Grid,
-  Header,
-  Menu,
-  Segment,
-} from "semantic-ui-react";
+import { Button, Card, Form, Grid, Header } from "semantic-ui-react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 import RegisterModal from "./RegisterModal";
