@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Modal, Form } from "semantic-ui-react";
 
-function RegisterModal({ onAuthenticate }) {
+const RegisterModal = ({ onAuthenticate }) => {
   const [open, setOpen] = React.useState(false);
 
   const onCancelHandler = (event) => {

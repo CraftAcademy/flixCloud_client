@@ -1,14 +1,14 @@
-import React from "react";
-import { Button, Modal, Form } from "semantic-ui-react";
+import React from 'react';
+import { Button, Modal, Form } from 'semantic-ui-react';
 import {
   CardNumberElement,
   injectStripe,
   CardCVCElement,
   CardExpiryElement,
-} from "react-stripe-elements";
-import axios from "axios";
+} from 'react-stripe-elements';
+import axios from 'axios';
 
-function SubscribeModal({ onSubscribe, stripe }) {
+const SubscribeModal = ({ onSubscribe, stripe }) => {
   const [open, setOpen] = React.useState(false);
 
   const onCancelHandler = (event) => {
@@ -17,13 +17,13 @@ function SubscribeModal({ onSubscribe, stripe }) {
   };
 
   const performPayment = async (stripeToken) => {
-    let headers = JSON.parse(localStorage.getItem("credentials"));
+    let headers = JSON.parse(localStorage.getItem('credentials'));
     let response = await axios.post(
-      "/subscriptions",
+      '/subscriptions',
       { stripeToken: stripeToken },
       { headers: headers }
     );
-    onSubscribe(response.data.paid ? response.data.message : "Whoops!");
+    onSubscribe(response.data.paid ? response.data.message : 'Whoops!');
     setOpen(false);
   };
 
@@ -40,7 +40,8 @@ function SubscribeModal({ onSubscribe, stripe }) {
       open={open}
       trigger={
         <Button
-          data-cy="subscribe-button" color="teal"
+          data-cy="subscribe-button"
+          color="teal"
           onClick={() => setOpen({ renderRegisterForm: true })}
         >
           Subscribe
@@ -78,6 +79,6 @@ function SubscribeModal({ onSubscribe, stripe }) {
       </Form>
     </Modal>
   );
-}
+};
 
 export default injectStripe(SubscribeModal);

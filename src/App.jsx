@@ -4,7 +4,7 @@ import { Container } from "semantic-ui-react";
 import SearchForMovies from "./components/SearchForMovies";
 import axios from "axios";
 
-function App() {
+const App = () => {
   const [authenticated, setAuthenticated] = React.useState(false);
   const [searched, setSearched] = React.useState(false);
 
