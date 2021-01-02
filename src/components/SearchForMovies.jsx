@@ -69,7 +69,7 @@ class SearchForMovies extends Component {
         <Grid padded columns={16}>
           <Grid.Row>
             <Grid.Column width={14} textAlign="center" verticalAlign="middle">
-              <Header fluid textAlign="center">
+              <Header fluid textAlign="center" size="large" color="teal">
                 Welcome to Flixcloud
               </Header>
             </Grid.Column>
