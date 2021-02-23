@@ -1,14 +1,14 @@
 # flixCloud_client
 Midcourse Project October 2020
 
-# Deployment
+## Deployment
 Deployed on [Netlify](https://flixcloud.netlify.app/)
 
 
-# About the application
+## About the application
 This is a web application, written with React and employed Movie Database as an external API for movie data, that provides visitors with an ability to see the latest popular movies. Futhermore, visitors can subscribe to be able to search for their favorite movies.
 
-# User Stories
+## User Stories
 
 ```
 As a Visitor
@@ -28,7 +28,7 @@ In order to find movies more easily
 I would like to be able to search for movies
 ```
 
-# Setup
+## Setup
   Clone this repository [Flixcloud](https://github.com/rithreaksa/flixcloud_client)
   
   ```
@@ -39,7 +39,7 @@ I would like to be able to search for movies
   yarn start
   ```
   
-# Dependencies
+## Dependencies
 
 * React
 * React-redux
@@ -47,11 +47,11 @@ I would like to be able to search for movies
 * Stripe
 * Axios
 
-# Built With
+## Built With
 * React 17.0.1
 * Cypress 4.1.0
   
-# Acknowledgments
+## Acknowledgments
 
 * Craft Academy Course Materials
 * Team members
@@ -61,14 +61,14 @@ I would like to be able to search for movies
 * [Stripe](https://stripe.com/docs)
 * [React-Redux Documentation](https://react-redux.js.org/)
 
-# Future Improvements
+## Future Improvements
 
 * Implements save to favorite feature for subscribers
 * Impletment category feature
 * Implements better UI and UX design
 * Implements Login/Logout features
 
-# Authors
+## Authors
 [Rithreaksa Khourn](https://github.com/rithreaksa)
 
 [Ann Flismark](https://github.com/FlisAnn)
@@ -77,7 +77,7 @@ I would like to be able to search for movies
 
 [Erik Hugosson](https://github.com/Ehugo2000)
 
-# License
+## License
 
 This project is licensed under the MIT License
 
